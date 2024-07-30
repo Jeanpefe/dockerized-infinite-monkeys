@@ -1,20 +1,25 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css'
 
 function App() {
-  const [generate, setGenerate] = useState()
-  const text = useRef('')
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
-  let counter = 0;
-  while (counter < length) {
-    text.current += characters.charAt(Math.floor(Math.random() * charactersLength))
-    counter += 1;
-  }
+  const [generate, setGenerate] = useState(true)
+  const [displayText, setDisplayText] = useState(''); // Estado para actualizar la pantalla
+
+  useEffect(() => {
+    if (generate) {
+      const interval = setInterval(() => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        setDisplayText(prevDisplayText => prevDisplayText + characters.charAt(Math.floor(Math.random() * charactersLength)))
+      }, 100);
+
+      // Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
+      return () => clearInterval(interval);
+    }
+  }, [generate]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("hola")
   }
   return (
     <>
@@ -24,7 +29,7 @@ function App() {
         <input type="text" />
         <button>🐒⌨️</button>
       </form>
-      <p>{text.current}</p>
+      <p>{displayText}</p>
     </>
   )
 }
