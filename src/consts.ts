@@ -1,0 +1,1 @@
+export const CHARACTERS: string =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 '
