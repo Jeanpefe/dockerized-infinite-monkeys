@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css'
 import { CHARACTERS } from './consts';
 
 function App() {
   const [generate, setGenerate] = useState(false)
+  const [inputText, setInputText] = useState('')
   const [displayText, setDisplayText] = useState(''); // Estado para actualizar la pantalla
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (generate) {
@@ -22,13 +24,18 @@ function App() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setGenerate(!generate)
+    if (inputRef.current) {
+      setInputText(inputRef.current.value)
+      console.log(inputRef.current.value)
+    }
   }
+
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
       <p>Enter a text</p>
       <form onSubmit={handleSubmit}>
-        <input type="text" />
+        <input type="text" ref={inputRef} />
         <button>🐒⌨️</button>
       </form>
       <section style={{ "background": "#404040", "maxWidth": "40rem", "overflow": "scroll", "borderRadius": "0.5rem" }} >
