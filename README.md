@@ -15,3 +15,13 @@ Hence, the probability of *not* typing the word of length $L$ in a 6 character a
  P_n = \left(1-\left(\frac{1}{26}\right)^L\right)^n
  $$
  which tends to 0 as $n$ goes to infinity.
+
+ # TODO List
+ - [] Change keys pressed per second
+ - [] Basic Search algorithm
+ - [] Advanced search algorithm
+ - [] Display estimated time for certain probabilities
+ - [] Multiple monkeys
+ - [] Explain math background
+ - [] Friendly UI :D
+ - [] Docker deploy
