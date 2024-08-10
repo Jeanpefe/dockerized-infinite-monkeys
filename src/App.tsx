@@ -14,7 +14,7 @@ function App() {
         const characters = CHARACTERS;
         const charactersLength = characters.length;
         setDisplayText(prevDisplayText => prevDisplayText + characters.charAt(Math.floor(Math.random() * charactersLength)))
-      }, 100);
+      }, 1);
 
       // Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
       return () => clearInterval(interval);
@@ -23,10 +23,9 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setGenerate(!generate)
+    setGenerate(true)
     if (inputRef.current) {
       setInputText(inputRef.current.value)
-      console.log(inputRef.current.value)
     }
   }
 
@@ -38,7 +37,8 @@ function App() {
         <input type="text" ref={inputRef} />
         <button>🐒⌨️</button>
       </form>
-      <section style={{ "background": "#404040", "maxWidth": "40rem", "overflow": "scroll", "borderRadius": "0.5rem" }} >
+	  <button onClick={() => setGenerate(false)}>Stop generating</button>
+      <section style={{ "background": "#404040", "maxWidth": "90rem", "borderRadius": "0.5rem" }} >
         <p>{displayText}</p>
       </section >
     </>
