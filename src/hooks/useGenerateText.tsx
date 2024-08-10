@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CHARACTERS } from "../consts";
 
 export const useGenerateText = (generate: boolean) => {
 	const [displayText, setDisplayText] = useState('')
-	if (generate) {
+
+	useEffect(() => {
+		if (generate) {
 		const interval = setInterval(() => {
 		const characters = CHARACTERS;
 		const charactersLength = characters.length;
@@ -12,6 +14,8 @@ export const useGenerateText = (generate: boolean) => {
 		// Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
 		return () => clearInterval(interval);
 	}
+	}, [generate])
+
 
 	return { displayText }
 } 
