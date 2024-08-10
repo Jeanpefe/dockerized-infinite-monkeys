@@ -8,8 +8,7 @@ export const useGenerateText = (generate: boolean) => {
 		const characters = CHARACTERS;
 		const charactersLength = characters.length;
 		setDisplayText(prevDisplayText => prevDisplayText + characters.charAt(Math.floor(Math.random() * charactersLength)))
-		}, 1);
-
+		}, 1000);
 		// Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
 		return () => clearInterval(interval);
 	}
