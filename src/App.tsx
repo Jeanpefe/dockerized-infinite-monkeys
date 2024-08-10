@@ -35,7 +35,7 @@ function App() {
       <p>Enter a text</p>
       <form onSubmit={handleSubmit}>
         <input type="text" ref={inputRef} />
-        <button>🐒⌨️</button>
+        <button disabled={generate}>🐒⌨️</button>
       </form>
 	  <button onClick={() => setGenerate(false)}>Stop generating</button>
       <section style={{ "background": "#404040", "maxWidth": "90rem", "borderRadius": "0.5rem" }} >
