@@ -5,7 +5,9 @@ import MonkeyText from './components/MonkeyText';
 function App() {
   const [generate, setGenerate] = useState(false)
   const [inputText, setInputText] = useState('')
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputNumberOfMonkeys, setInputNumberOfMonkeys] = useState(0)
+  const inputTextRef = useRef<HTMLInputElement>(null);
+  const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null);
 
   //   useEffect(() => {
   //     if (generate) {
@@ -23,8 +25,11 @@ function App() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setGenerate(true)
-    if (inputRef.current) {
-      setInputText(inputRef.current.value)
+    if (inputTextRef.current) {
+      setInputText(inputTextRef.current.value)
+    }
+    if (inputNumberOfMonkeysRef.current) {
+      setInputNumberOfMonkeys(inputNumberOfMonkeysRef.current.value)
     }
   }
 
@@ -33,11 +38,18 @@ function App() {
       <h1>Dockerized Infinite Monkeys</h1>
       <p>Enter a text</p>
       <form onSubmit={handleSubmit}>
-        <input type="text" ref={inputRef} />
+        <input type="text" ref={inputTextRef} />
+        <input type="number" ref={inputNumberOfMonkeysRef} />
         <button disabled={generate}>🐒⌨️</button>
       </form>
       <button onClick={() => setGenerate(false)}>Stop generating</button>
-      <MonkeyText inputText={inputText} generate={generate} />
+      <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
+        {
+          Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
+            <MonkeyText key={index} inputText={inputText} generate={generate} />
+          ))
+        }
+      </section>
     </>
   )
 }
