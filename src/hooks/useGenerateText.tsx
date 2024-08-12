@@ -6,14 +6,15 @@ export const useGenerateText = (generate: boolean) => {
 
 	useEffect(() => {
 		if (generate) {
-		const interval = setInterval(() => {
-		const characters = CHARACTERS;
-		const charactersLength = characters.length;
-		setDisplayText(prevDisplayText => prevDisplayText + characters.charAt(Math.floor(Math.random() * charactersLength)))
-		}, 1000);
-		// Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
-		return () => clearInterval(interval);
-	}
+			setDisplayText('')
+			const interval = setInterval(() => {
+				const characters = CHARACTERS;
+				const charactersLength = characters.length;
+				setDisplayText(prevDisplayText => prevDisplayText + characters.charAt(Math.floor(Math.random() * charactersLength)))
+			}, 1000);
+			// Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
+			return () => clearInterval(interval);
+		}
 	}, [generate])
 
 
