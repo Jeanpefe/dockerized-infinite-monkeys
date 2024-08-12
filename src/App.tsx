@@ -29,7 +29,7 @@ function App() {
       setInputText(inputTextRef.current.value)
     }
     if (inputNumberOfMonkeysRef.current) {
-      setInputNumberOfMonkeys(inputNumberOfMonkeysRef.current.value)
+      setInputNumberOfMonkeys(Number(inputNumberOfMonkeysRef.current.value) || 0)
     }
   }
 
