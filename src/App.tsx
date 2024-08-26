@@ -23,8 +23,8 @@ function App() {
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
-      <p>Enter a text</p>
-      <form onSubmit={handleSubmit}>
+	  <section style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center'}}>	  
+      <form onSubmit={handleSubmit} style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center'}}>
         <div>
           <label>Text:</label>
           <input type="text" ref={inputTextRef} />
@@ -36,7 +36,8 @@ function App() {
         <button disabled={generate}>🐒⌨️</button>
       </form>
       <button onClick={() => setGenerate(false)}>Stop generating</button>
-      <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
+      </section>
+	  <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
           Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
             <MonkeyText key={index} inputText={inputText} generate={generate} />
