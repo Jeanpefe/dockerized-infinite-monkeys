@@ -9,19 +9,6 @@ function App() {
   const inputTextRef = useRef<HTMLInputElement>(null);
   const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null);
 
-  //   useEffect(() => {
-  //     if (generate) {
-  //       const interval = setInterval(() => {
-  //         const characters = CHARACTERS;
-  //         const charactersLength = characters.length;
-  //         setDisplayText(prevDisplayText => prevDisplayText + characters.charAt(Math.floor(Math.random() * charactersLength)))
-  //       }, 1);
-
-  //       // Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
-  //       return () => clearInterval(interval);
-  //     }
-  //   }, [generate]);
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setGenerate(true)
@@ -38,8 +25,14 @@ function App() {
       <h1>Dockerized Infinite Monkeys</h1>
       <p>Enter a text</p>
       <form onSubmit={handleSubmit}>
-        <input type="text" ref={inputTextRef} />
-        <input type="number" ref={inputNumberOfMonkeysRef} />
+        <div>
+          <label>Text:</label>
+          <input type="text" ref={inputTextRef} />
+        </div>
+        <div>
+          <label>Number of Monkeys:</label>
+          <input type="number" ref={inputNumberOfMonkeysRef} />
+        </div>
         <button disabled={generate}>🐒⌨️</button>
       </form>
       <button onClick={() => setGenerate(false)}>Stop generating</button>
