@@ -23,21 +23,21 @@ function App() {
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
-	  <section style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center'}}>	  
-      <form onSubmit={handleSubmit} style={{'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center'}}>
-        <div>
-          <label>Text:</label>
-          <input type="text" ref={inputTextRef} />
-        </div>
-        <div>
-          <label>Number of Monkeys:</label>
-          <input type="number" ref={inputNumberOfMonkeysRef} />
-        </div>
-        <button disabled={generate}>🐒⌨️</button>
-      </form>
-      <button onClick={() => setGenerate(false)}>Stop generating</button>
+      <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center' }}>
+        <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center' }}>
+          <div>
+            <label>Text:</label>
+            <input type="text" ref={inputTextRef} />
+          </div>
+          <div>
+            <label>Number of Monkeys:</label>
+            <input type="number" ref={inputNumberOfMonkeysRef} />
+          </div>
+          <button disabled={generate}>🐒⌨️</button>
+        </form>
+        <button onClick={() => setGenerate(false)}>Stop generating</button>
       </section>
-	  <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
+      <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
           Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
             <MonkeyText key={index} inputText={inputText} generate={generate} />
