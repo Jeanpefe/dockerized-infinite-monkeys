@@ -6,8 +6,10 @@ function App() {
   const [generate, setGenerate] = useState(false)
   const [inputText, setInputText] = useState('')
   const [inputNumberOfMonkeys, setInputNumberOfMonkeys] = useState(0)
+  const [charactersPerSecond, setCharactersPerSecond] = useState(0)
   const inputTextRef = useRef<HTMLInputElement>(null);
   const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null);
+  const charactersPerSecondRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,6 +19,9 @@ function App() {
     }
     if (inputNumberOfMonkeysRef.current) {
       setInputNumberOfMonkeys(Number(inputNumberOfMonkeysRef.current.value) || 0)
+    }
+    if (charactersPerSecondRef.current) {
+      setCharactersPerSecond(Number(charactersPerSecondRef.current.value) || 0)
     }
   }
 
@@ -33,6 +38,10 @@ function App() {
             <label>Number of Monkeys:</label>
             <input type="number" ref={inputNumberOfMonkeysRef} />
           </div>
+          <div>
+            <label>Characters per second:</label>
+            <input type="number" ref={charactersPerSecondRef} />
+          </div>
           <button disabled={generate}>🐒⌨️</button>
         </form>
         <button onClick={() => setGenerate(false)}>Stop generating</button>
@@ -40,7 +49,7 @@ function App() {
       <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
           Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
-            <MonkeyText key={index} inputText={inputText} generate={generate} />
+            <MonkeyText key={index} inputText={inputText} generate={generate} charactersPerSecond={charactersPerSecond} />
           ))
         }
       </section>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CHARACTERS } from "../consts";
 
-export const useGenerateText = (generate: boolean) => {
+export const useGenerateText = (generate: boolean, charactersPersSecond: number) => {
 	const [displayText, setDisplayText] = useState('')
 
 	useEffect(() => {
@@ -11,11 +11,11 @@ export const useGenerateText = (generate: boolean) => {
 				const characters = CHARACTERS;
 				const charactersLength = characters.length;
 				setDisplayText(prevDisplayText => prevDisplayText + characters.charAt(Math.floor(Math.random() * charactersLength)))
-			}, 10);
+			}, 1000 / charactersPersSecond);
 			// Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
 			return () => clearInterval(interval);
 		}
-	}, [generate])
+	}, [generate, charactersPersSecond]);
 
 
 	return { displayText }
