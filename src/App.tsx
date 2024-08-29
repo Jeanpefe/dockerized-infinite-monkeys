@@ -7,6 +7,7 @@ function App() {
   const [inputText, setInputText] = useState('')
   const [inputNumberOfMonkeys, setInputNumberOfMonkeys] = useState(0)
   const [charactersPerSecond, setCharactersPerSecond] = useState(0)
+  const [foundMonkeyIndex, setFoundMonkeyIndex] = useState<number | null>(null)
   const inputTextRef = useRef<HTMLInputElement>(null);
   const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null);
   const charactersPerSecondRef = useRef<HTMLInputElement>(null);
@@ -25,6 +26,11 @@ function App() {
     }
   }
 
+  const handleTextFound = (index: number) => {
+    setFoundMonkeyIndex(index);
+    setGenerate(false); // Detener la generación cuando se encuentra el texto
+	console.log("coincide")
+  };
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
@@ -49,7 +55,7 @@ function App() {
       <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
           Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
-            <MonkeyText key={index} inputText={inputText} generate={generate} charactersPerSecond={charactersPerSecond} />
+            <MonkeyText key={index} inputText={inputText} generate={generate} charactersPerSecond={charactersPerSecond} onTextFound={() => handleTextFound(index)} />
           ))
         }
       </section>
