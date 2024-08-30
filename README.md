@@ -9,7 +9,7 @@ _If we let a monkey type randomly on a keyboard for an infinite period of time, 
 
 ## Let's do some math
 Assume that our keyboard has 26 different keys. The probability of the monkey typing a word of length $L$ is $(\frac{1}{26})^L$.
-Hence, the probability of *not* typing the word of length $L$ in a 6 character attempt is $1-(\frac{1}{26})^L$. Since each block of length $L$ is independently typed, we can conclude that the probability of not typing a word of length $L$ after $n$ key pressed is
+Hence, the probability of *not* typing the word of length $L$ in a 26 character attempt is $1-(\frac{1}{26})^L$. Since each block of length $L$ is independently typed, we can conclude that the probability of not typing a word of length $L$ after the $n$-th block of length $L$ pressed is
  
  $P_n = \left(1-\left(\frac{1}{26}\right)^L\right)^n$   which tends to 0 as $n$ goes to infinity.
 
@@ -17,8 +17,8 @@ Hence, the probability of *not* typing the word of length $L$ in a 6 character a
  - [x] Change keys pressed per second
  - [x] Basic Search algorithm
  - [x] Multiple monkeys
- - [] Advanced search algorithm
- - [] Display estimated time for certain probabilities
- - [] Explain math background
- - [] Friendly UI :D
- - [] Docker deploy
+ - [ ] Advanced search algorithm
+ - [ ] Display estimated time for certain probabilities
+ - [ ] Explain math background
+ - [ ] Friendly UI :D
+ - [ ] Docker deploy
