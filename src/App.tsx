@@ -59,9 +59,10 @@ function App() {
 	  </section>
 	  <section>
 		<h2>Probalities</h2>
-		<p>Probability of typing the word in less than 1000 characters: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000/inputText.length)).toFixed(6)}</p>
-		<p>Probability of typing the word in less than 10000 characters: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(10000/inputText.length)).toFixed(6)}</p>
-		<p>Probability of typing the word in less than 1000000 characters: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000000/inputText.length)).toFixed(6)}</p>
+		<p>Probability of typing the word in less than 1000 characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000/inputText.length*inputNumberOfMonkeys)).toFixed(10)}</p>
+		<p>Probability of typing the word in less than 10000 characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(10000/inputText.length*inputNumberOfMonkeys)).toFixed(10)}</p>
+		<p>Probability of typing the word in less than 1 million characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000000/inputText.length*inputNumberOfMonkeys)).toFixed(25)}</p>
+		<p>Probability of typing the word in less than 1000 million characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000000000/inputText.length*inputNumberOfMonkeys)).toFixed(25)}</p>
 	  </section>
       <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
