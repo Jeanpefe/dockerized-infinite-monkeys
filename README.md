@@ -11,9 +11,9 @@ _If we let a monkey type randomly on a keyboard for an infinite period of time, 
 Assume that our keyboard has 26 different keys. The probability of the monkey typing a word of length $L$ is $(\frac{1}{26})^L$.
 Hence, the probability of *not* typing the word of length $L$ in a 6 character attempt is $1-(\frac{1}{26})^L$. Since each block of length $L$ is independently typed, we can conclude that the probability of not typing a word of length $L$ after $n$ key pressed is
  
- $$
+ $
  P_n = \left(1-\left(\frac{1}{26}\right)^L\right)^n
- $$
+ $
  which tends to 0 as $n$ goes to infinity.
 
  # TODO List
