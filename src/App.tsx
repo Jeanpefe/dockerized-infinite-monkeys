@@ -1,12 +1,12 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './App.css'
 import MonkeyText from './components/MonkeyText';
 
 function App() {
-  const [generate, setGenerate] = useState(false)
-  const [inputText, setInputText] = useState('')
-  const [inputNumberOfMonkeys, setInputNumberOfMonkeys] = useState(0)
-  const [charactersPerSecond, setCharactersPerSecond] = useState(0)
+  const [generate, setGenerate] = useState<boolean>(false)
+  const [inputText, setInputText] = useState<string>('')
+  const [inputNumberOfMonkeys, setInputNumberOfMonkeys] = useState<number>(0)
+  const [charactersPerSecond, setCharactersPerSecond] = useState<number>(0)
   const [foundMonkeyIndex, setFoundMonkeyIndex] = useState<number | null>(null)
   const inputTextRef = useRef<HTMLInputElement>(null);
   const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null);
@@ -14,6 +14,7 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+	setFoundMonkeyIndex(null)
     setGenerate(true)
     if (inputTextRef.current) {
       setInputText(inputTextRef.current.value)
@@ -26,11 +27,11 @@ function App() {
     }
   }
 
-  const handleTextFound = (index: number) => {
+  const handleTextFound = useCallback((index: number) => {
     setFoundMonkeyIndex(index);
     setGenerate(false); // Detener la generación cuando se encuentra el texto
-	console.log("coincide")
-  };
+    console.log("coincide");
+  }, []);
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
@@ -52,6 +53,9 @@ function App() {
         </form>
         <button onClick={() => setGenerate(false)}>Stop generating</button>
       </section>
+	  <section>
+		{foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
+	  </section>
       <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
           Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
