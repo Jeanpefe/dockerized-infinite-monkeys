@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import './App.css'
 import MonkeyText from './components/MonkeyText';
 import { CHARACTERS } from './consts';
+import { getProbabilityOfTypingAWordWithMultipleMonkeys } from './utils/calculateProbabities';
 
 function App() {
   const [generate, setGenerate] = useState<boolean>(false)
@@ -57,13 +58,15 @@ function App() {
 	  <section>
 		{foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
 	  </section>
-	  <section>
-		<h2>Probalities</h2>
-		<p>Probability of typing the word in less than 1000 characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000/inputText.length*inputNumberOfMonkeys)).toFixed(10)}</p>
-		<p>Probability of typing the word in less than 10000 characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(10000/inputText.length*inputNumberOfMonkeys)).toFixed(10)}</p>
-		<p>Probability of typing the word in less than 1 million characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000000/inputText.length*inputNumberOfMonkeys)).toFixed(25)}</p>
-		<p>Probability of typing the word in less than 1000 million characters with {inputNumberOfMonkeys} monkeys: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000000000/inputText.length*inputNumberOfMonkeys)).toFixed(25)}</p>
+	{inputText &&
+	<section>
+		<h2>Probabilities</h2>
+		<p>Probability of typing the word in less than 1000 characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000,inputText, numberOfDecimals:6})}</p>
+		<p>Probability of typing the word in less than 10000 characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:10000,inputText, numberOfDecimals:8})}</p>
+		<p>Probability of typing the word in less than 1 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000000,inputText, numberOfDecimals:10})}</p>
+		<p>Probability of typing the word in less than 1000 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000000000,inputText, numberOfDecimals:15})}</p>
 	  </section>
+	  }
       <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
           Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
