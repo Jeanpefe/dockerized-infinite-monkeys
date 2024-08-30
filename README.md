@@ -17,11 +17,11 @@ Hence, the probability of *not* typing the word of length $L$ in a 6 character a
  which tends to 0 as $n$ goes to infinity.
 
  # TODO List
- - [] Change keys pressed per second
- - [] Basic Search algorithm
+ - [x] Change keys pressed per second
+ - [x] Basic Search algorithm
+ - [x] Multiple monkeys
  - [] Advanced search algorithm
  - [] Display estimated time for certain probabilities
- - [] Multiple monkeys
  - [] Explain math background
  - [] Friendly UI :D
  - [] Docker deploy
