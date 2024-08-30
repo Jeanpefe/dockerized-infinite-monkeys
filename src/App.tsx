@@ -67,13 +67,32 @@ function App() {
 		<p>Probability of typing the word in less than 1000 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000000000,inputText, numberOfDecimals:15})}</p>
 	  </section>
 	  }
-      <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
-        {
-          Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
-            <MonkeyText key={index} inputText={inputText} generate={generate} charactersPerSecond={charactersPerSecond} onTextFound={() => handleTextFound(index)} />
-          ))
-        }
-      </section>
+	<section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
+	{inputNumberOfMonkeys > 50 ? (
+		(
+			Array.from({ length: 50 }).map((_, index) => (
+			<MonkeyText
+				key={index}
+				inputText={inputText}
+				generate={generate}
+				charactersPerSecond={charactersPerSecond}
+				onTextFound={() => handleTextFound(index)}
+			/>
+			))
+		)
+	) : (
+		Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
+		<MonkeyText
+			key={index}
+			inputText={inputText}
+			generate={generate}
+			charactersPerSecond={charactersPerSecond}
+			onTextFound={() => handleTextFound(index)}
+		/>
+		))
+	)}
+	</section>
+
     </>
   )
 }
