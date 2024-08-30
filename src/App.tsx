@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import './App.css'
 import MonkeyText from './components/MonkeyText';
+import { CHARACTERS } from './consts';
 
 function App() {
   const [generate, setGenerate] = useState<boolean>(false)
@@ -55,6 +56,12 @@ function App() {
       </section>
 	  <section>
 		{foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
+	  </section>
+	  <section>
+		<h2>Probalities</h2>
+		<p>Probability of typing the word in less than 1000 characters: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000/inputText.length)).toFixed(6)}</p>
+		<p>Probability of typing the word in less than 10000 characters: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(10000/inputText.length)).toFixed(6)}</p>
+		<p>Probability of typing the word in less than 1000000 characters: {(1-(1-(1/CHARACTERS.length)**inputText.length)**(1000000/inputText.length)).toFixed(6)}</p>
 	  </section>
       <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
         {
