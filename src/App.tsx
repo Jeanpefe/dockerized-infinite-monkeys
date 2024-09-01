@@ -3,6 +3,7 @@ import './App.css'
 import MonkeyText from './components/MonkeyText';
 import { CHARACTERS } from './consts';
 import { getProbabilityOfTypingAWordWithMultipleMonkeys } from './utils/calculateProbabities';
+import { ProbabilityUnderConditions } from './components/Probability';
 
 function App() {
   const [generate, setGenerate] = useState<boolean>(false)
@@ -61,10 +62,10 @@ function App() {
 	{inputText &&
 	<section>
 		<h2>Probabilities</h2>
-		<p>Probability of typing the word in less than 1000 characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000,inputText, numberOfDecimals:15})}</p>
-		<p>Probability of typing the word in less than 10000 characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:10000,inputText, numberOfDecimals:15})}</p>
-		<p>Probability of typing the word in less than 1 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000000,inputText, numberOfDecimals:15})}</p>
-		<p>Probability of typing the word in less than 1000 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:100000000000,inputText, numberOfDecimals:15})}</p>
+		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000} displayTextNumberOfCharacters={'1000'} inputText={inputText} numberOfDecimals={15}/>
+		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={10000} displayTextNumberOfCharacters={'10000'} inputText={inputText} numberOfDecimals={15}/>
+		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000} displayTextNumberOfCharacters={'1 million'} inputText={inputText} numberOfDecimals={15}/>
+		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000000} displayTextNumberOfCharacters={'1000 million'} inputText={inputText} numberOfDecimals={15}/>
 	  </section>
 	  }
 	<section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
