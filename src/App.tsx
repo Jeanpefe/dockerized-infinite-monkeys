@@ -1,8 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import './App.css'
 import MonkeyText from './components/MonkeyText';
-import { CHARACTERS } from './consts';
-import { getProbabilityOfTypingAWordWithMultipleMonkeys } from './utils/calculateProbabities';
 import { ProbabilityUnderConditions } from './components/Probability';
 
 function App() {
@@ -11,6 +9,7 @@ function App() {
   const [inputNumberOfMonkeys, setInputNumberOfMonkeys] = useState<number>(0)
   const [charactersPerSecond, setCharactersPerSecond] = useState<number>(0)
   const [foundMonkeyIndex, setFoundMonkeyIndex] = useState<number | null>(null)
+  const [charactersTyped, setCharactersTyped] = useState<number>(0)
   const inputTextRef = useRef<HTMLInputElement>(null);
   const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null);
   const charactersPerSecondRef = useRef<HTMLInputElement>(null);
@@ -19,6 +18,7 @@ function App() {
     e.preventDefault();
 	setFoundMonkeyIndex(null)
     setGenerate(true)
+    setCharactersTyped(0)
     if (inputTextRef.current) {
       setInputText(inputTextRef.current.value)
     }
@@ -60,23 +60,26 @@ function App() {
 		{foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
 	  </section>
 	{inputText &&
-	<section>
-		<h2>Probabilities</h2>
-		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000} displayTextNumberOfCharacters={'1000'} inputText={inputText} numberOfDecimals={15}/>
-		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={10000} displayTextNumberOfCharacters={'10000'} inputText={inputText} numberOfDecimals={15}/>
-		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000} displayTextNumberOfCharacters={'1 million'} inputText={inputText} numberOfDecimals={15}/>
-		<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000000} displayTextNumberOfCharacters={'1000 million'} inputText={inputText} numberOfDecimals={15}/>
-	  </section>
+	<>
+		<p>Characters typed: {charactersTyped}</p>
+		<section>
+			<h2>Probabilities</h2>
+			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000} displayTextNumberOfCharacters={'1000'} inputText={inputText} numberOfDecimals={15}/>
+			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={10000} displayTextNumberOfCharacters={'10000'} inputText={inputText} numberOfDecimals={15}/>
+			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000} displayTextNumberOfCharacters={'1 million'} inputText={inputText} numberOfDecimals={15}/>
+			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000000} displayTextNumberOfCharacters={'1000 million'} inputText={inputText} numberOfDecimals={15}/>
+		</section>
+	</>
 	  }
 	<section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
 	{inputNumberOfMonkeys > 50 ? (
 		(
 			Array.from({ length: 50 }).map((_, index) => (
 			<MonkeyText
-				key={index}
 				inputText={inputText}
 				generate={generate}
 				charactersPerSecond={charactersPerSecond}
+				setCharactersTyped={setCharactersTyped}
 				onTextFound={() => handleTextFound(index)}
 			/>
 			))
@@ -89,6 +92,7 @@ function App() {
 			generate={generate}
 			charactersPerSecond={charactersPerSecond}
 			onTextFound={() => handleTextFound(index)}
+			setCharactersTyped={setCharactersTyped}
 		/>
 		))
 	)}

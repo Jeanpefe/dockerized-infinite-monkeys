@@ -10,6 +10,5 @@ interface ProbabilityUnderConditionsProps {
 export function ProbabilityUnderConditions ({inputNumberOfMonkeys, numberOfCharacters, displayTextNumberOfCharacters, inputText, numberOfDecimals}: ProbabilityUnderConditionsProps) {
 	return (
 		<p>Probability of typing the word in less than {displayTextNumberOfCharacters} characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters,inputText, numberOfDecimals})}</p>
-
 	)
 }

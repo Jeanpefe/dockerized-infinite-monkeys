@@ -6,8 +6,9 @@ interface useGenerateTextProps {
 	charactersPerSecond: number;
 	inputText: string;
 	onTextFound: () => void;
+    setCharactersTyped: React.Dispatch<React.SetStateAction<number>>;
 }
-export const useGenerateText = ({generate, charactersPerSecond, inputText, onTextFound}: useGenerateTextProps) => {
+export const useGenerateText = ({generate, charactersPerSecond, inputText, onTextFound, setCharactersTyped}: useGenerateTextProps) => {
 	const [displayText, setDisplayText] = useState<string>('')
 	const characters = CHARACTERS;
 	const charactersLength = characters.length;
@@ -27,6 +28,7 @@ export const useGenerateText = ({generate, charactersPerSecond, inputText, onTex
 					console.log(newText)
 					return newText
 				})
+				setCharactersTyped(prev => prev + 1)
 			}, 1000 / charactersPerSecond);
 			// Limpiar el intervalo cuando el componente se desmonte o 'generate' cambie
 			return () => clearInterval(interval);
