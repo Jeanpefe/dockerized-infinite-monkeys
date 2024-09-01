@@ -21,10 +21,10 @@ const roundedProbability = probability.toDecimalPlaces(numberOfDecimals);
 let probabilityString = roundedProbability.toFixed(numberOfDecimals);
 
 // Si el valor es muy pequeño, usamos notación científica
-if (roundedProbability.lt(new Decimal(1).div(new Decimal(10).pow(numberOfDecimals)))) {
-  probabilityString = roundedProbability.toExponential(numberOfDecimals);
+if (roundedProbability.lt(new Decimal(1).div(new Decimal(25).pow(numberOfDecimals)))) {
+  probabilityString = probability.toExponential(numberOfDecimals);
 }
 
-return probability.toString();
+return probabilityString;
 	// return (1-Math.pow((1-Math.pow(1/CHARACTERS.length, inputText.length)), (numberOfCharacters/inputText.length*inputNumberOfMonkeys)))
 }
