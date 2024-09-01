@@ -64,7 +64,7 @@ function App() {
 		<p>Probability of typing the word in less than 1000 characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000,inputText, numberOfDecimals:6})}</p>
 		<p>Probability of typing the word in less than 10000 characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:10000,inputText, numberOfDecimals:8})}</p>
 		<p>Probability of typing the word in less than 1 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000000,inputText, numberOfDecimals:10})}</p>
-		<p>Probability of typing the word in less than 1000 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:1000000000,inputText, numberOfDecimals:15})}</p>
+		<p>Probability of typing the word in less than 1000 million characters with {inputNumberOfMonkeys} monkeys: {getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters:100000000000,inputText, numberOfDecimals:25})}</p>
 	  </section>
 	  }
 	<section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
