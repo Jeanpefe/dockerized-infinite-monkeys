@@ -33,7 +33,6 @@ function App() {
   const handleTextFound = useCallback((index: number) => {
     setFoundMonkeyIndex(index);
     setGenerate(false); // Detener la generación cuando se encuentra el texto
-    console.log("coincide");
   }, []);
   return (
     <>

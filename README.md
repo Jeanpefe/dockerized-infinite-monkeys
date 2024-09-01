@@ -17,7 +17,8 @@ Hence, the probability of *not* typing the word of length $L$ in a 26 character 
  - [x] Change keys pressed per second
  - [x] Basic Search algorithm
  - [x] Multiple monkeys
- - [ ] Display characters typed
+ - [x] Display characters typed
+ - [ ] Review the math, since the probability of $n$ monkeys typing $m$ characters each is not the same as 1 monkey typing $n \cdot m$ characters
  - [ ] Display estimated time for certain probabilities
  - [ ] Advanced search algorithm
  - [ ] Explain math background
