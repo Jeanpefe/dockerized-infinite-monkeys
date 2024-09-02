@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
-      <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #ecbc45','padding': '1rem' }}>
+      <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #b49159','padding': '1rem' }}>
         <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'gap': '4rem'}}>
           <div className='formFieldContainer'>
             <label className='formField'>Text to type</label>

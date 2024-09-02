@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   background-color: #ccbcae;
 
   font-synthesis: none;
@@ -44,11 +43,12 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  background-color: #b49159;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #591902;
 }
 button:focus,
 button:focus-visible {
