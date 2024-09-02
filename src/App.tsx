@@ -37,18 +37,18 @@ function App() {
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
-      <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center' }}>
+      <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #ecbc45','padding': '1rem' }}>
         <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center' }}>
           <div>
-            <label>Text:</label>
+            <label className='formField'>Text:</label>
             <input type="text" ref={inputTextRef} />
           </div>
           <div>
-            <label>Number of Monkeys:</label>
+            <label className='formField'>Number of Monkeys:</label>
             <input type="number" ref={inputNumberOfMonkeysRef} />
           </div>
           <div>
-            <label>Characters per second:</label>
+            <label className='formField'>Characters per second:</label>
             <input type="number" ref={charactersPerSecondRef} />
           </div>
           <button disabled={generate}>🐒⌨️</button>
