@@ -11,8 +11,8 @@ interface ProbabilityOfTypingAWordWithMultipleMonkeysTypes {
 export function getProbabilityOfTypingAWordWithMultipleMonkeys({inputNumberOfMonkeys, numberOfCharacters, inputText, numberOfDecimals}: ProbabilityOfTypingAWordWithMultipleMonkeysTypes) {	
 	Decimal.set({ precision: 100 });
 
-const probability = new Decimal(1)
-  .minus(new Decimal(1).minus((new Decimal(1).div(CHARACTERS.length).pow(inputText.length))).pow(numberOfCharacters / inputText.length * inputNumberOfMonkeys))
+	const probability = new Decimal(1)
+  .minus((new Decimal(1).minus((new Decimal(1).div(CHARACTERS.length).pow(inputText.length)))).pow(numberOfCharacters / inputText.length * inputNumberOfMonkeys))
 
 // Redondear a la cantidad específica de decimales
 const roundedProbability = probability.toDecimalPlaces(numberOfDecimals);
