@@ -38,22 +38,22 @@ function App() {
     <>
       <h1>Dockerized Infinite Monkeys</h1>
       <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #ecbc45','padding': '1rem' }}>
-        <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center' }}>
-          <div>
-            <label className='formField'>Text:</label>
+        <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'gap': '4rem'}}>
+          <div className='formFieldContainer'>
+            <label className='formField'>Text to type</label>
             <input type="text" ref={inputTextRef} />
           </div>
-          <div>
-            <label className='formField'>Number of Monkeys:</label>
+          <div className='formFieldContainer'>
+            <label className='formField'>Number of Monkeys</label>
             <input type="number" ref={inputNumberOfMonkeysRef} />
           </div>
-          <div>
-            <label className='formField'>Characters per second:</label>
+          <div className='formFieldContainer'>
+            <label className='formField'>Keys per second</label>
             <input type="number" ref={charactersPerSecondRef} />
           </div>
           <button disabled={generate}>🐒⌨️</button>
         </form>
-        <button onClick={() => setGenerate(false)}>Stop generating</button>
+        <button onClick={() => setGenerate(false)}>🐒🍌</button>
       </section>
 	  <section>
 		{foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}

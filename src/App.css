@@ -10,3 +10,9 @@
 	color: #591902;
 	font-weight: 800;
 }
+
+.formFieldContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
