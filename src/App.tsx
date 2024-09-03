@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from 'react';
 import './App.css'
 import MonkeyText from './components/MonkeyText';
 import { ProbabilityUnderConditions } from './components/Probability';
+import Footer from './components/Footer';
 
 function App() {
   const [generate, setGenerate] = useState<boolean>(false)
@@ -96,6 +97,7 @@ function App() {
           ))
         )}
       </section>
+      <Footer />
     </>
   )
 }
