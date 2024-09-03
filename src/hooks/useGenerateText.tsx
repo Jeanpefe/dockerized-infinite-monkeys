@@ -6,9 +6,9 @@ interface useGenerateTextProps {
 	charactersPerSecond: number;
 	inputText: string;
 	onTextFound: () => void;
-    setCharactersTyped: React.Dispatch<React.SetStateAction<number>>;
+	setCharactersTyped: React.Dispatch<React.SetStateAction<number>>;
 }
-export const useGenerateText = ({generate, charactersPerSecond, inputText, onTextFound, setCharactersTyped}: useGenerateTextProps) => {
+export const useGenerateText = ({ generate, charactersPerSecond, inputText, onTextFound, setCharactersTyped }: useGenerateTextProps) => {
 	const [displayText, setDisplayText] = useState<string>('')
 	const characters = CHARACTERS;
 	const charactersLength = characters.length;

@@ -16,7 +16,7 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-	setFoundMonkeyIndex(null)
+    setFoundMonkeyIndex(null)
     setGenerate(true)
     setCharactersTyped(0)
     if (inputTextRef.current) {
@@ -37,8 +37,8 @@ function App() {
   return (
     <>
       <h1>Dockerized Infinite Monkeys</h1>
-      <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #b49159','padding': '1rem' }}>
-        <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'gap': '4rem'}}>
+      <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #b49159', 'padding': '1rem' }}>
+        <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'gap': '4rem' }}>
           <div className='formFieldContainer'>
             <label className='formField'>Text to type</label>
             <input type="text" ref={inputTextRef} />
@@ -55,48 +55,47 @@ function App() {
         </form>
         <button onClick={() => setGenerate(false)}>🐒🍌</button>
       </section>
-	  <section>
-		{foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
-	  </section>
-	{inputText &&
-	<>
-		<p>Characters typed: {charactersTyped}</p>
-		<section>
-			<h2>Probabilities</h2>
-			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000} displayTextNumberOfCharacters={'1000'} inputText={inputText} numberOfDecimals={15}/>
-			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={10000} displayTextNumberOfCharacters={'10000'} inputText={inputText} numberOfDecimals={15}/>
-			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000} displayTextNumberOfCharacters={'1 million'} inputText={inputText} numberOfDecimals={15}/>
-			<ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000000} displayTextNumberOfCharacters={'1000 million'} inputText={inputText} numberOfDecimals={15}/>
-		</section>
-	</>
-	  }
-	<section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
-	{inputNumberOfMonkeys > 50 ? (
-		(
-			Array.from({ length: 50 }).map((_, index) => (
-			<MonkeyText
-				inputText={inputText}
-				generate={generate}
-				charactersPerSecond={charactersPerSecond}
-				setCharactersTyped={setCharactersTyped}
-				onTextFound={() => handleTextFound(index)}
-			/>
-			))
-		)
-	) : (
-		Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
-		<MonkeyText
-			key={index}
-			inputText={inputText}
-			generate={generate}
-			charactersPerSecond={charactersPerSecond}
-			onTextFound={() => handleTextFound(index)}
-			setCharactersTyped={setCharactersTyped}
-		/>
-		))
-	)}
-	</section>
-
+      <section>
+        {foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
+      </section>
+      {inputText &&
+        <>
+          <p>Characters typed: {charactersTyped}</p>
+          <section>
+            <h2>Probabilities</h2>
+            <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000} displayTextNumberOfCharacters={'1000'} inputText={inputText} numberOfDecimals={15} />
+            <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={10000} displayTextNumberOfCharacters={'10000'} inputText={inputText} numberOfDecimals={15} />
+            <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000} displayTextNumberOfCharacters={'1 million'} inputText={inputText} numberOfDecimals={15} />
+            <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000000} displayTextNumberOfCharacters={'1000 million'} inputText={inputText} numberOfDecimals={15} />
+          </section>
+        </>
+      }
+      <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column" }}>
+        {inputNumberOfMonkeys > 50 ? (
+          (
+            Array.from({ length: 50 }).map((_, index) => (
+              <MonkeyText
+                inputText={inputText}
+                generate={generate}
+                charactersPerSecond={charactersPerSecond}
+                setCharactersTyped={setCharactersTyped}
+                onTextFound={() => handleTextFound(index)}
+              />
+            ))
+          )
+        ) : (
+          Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
+            <MonkeyText
+              key={index}
+              inputText={inputText}
+              generate={generate}
+              charactersPerSecond={charactersPerSecond}
+              onTextFound={() => handleTextFound(index)}
+              setCharactersTyped={setCharactersTyped}
+            />
+          ))
+        )}
+      </section>
     </>
   )
 }
