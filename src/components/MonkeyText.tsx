@@ -11,8 +11,8 @@ interface MonkeyTextProps {
 export default function MonkeyText({ inputText, generate, charactersPerSecond, onTextFound, setCharactersTyped }: MonkeyTextProps) {
 	const { displayText } = useGenerateText({ generate, charactersPerSecond, inputText, onTextFound, setCharactersTyped })
 	return (
-		<section style={{ "background": "#404040", "maxWidth": "90rem", "borderRadius": "0.5rem", "overflowX": "auto", "padding": "0.5rem 1rem" }} >
-			<p>{displayText}</p>
+		<section style={{ "background": "#f6eee3", "maxWidth": "90rem", "borderRadius": "0.5rem", "overflowX": "auto", "padding": "0.5rem 1rem" }} >
+			<p style={{ 'fontFamily': 'Special Elite', 'color': 'black' }}>{displayText}</p>
 		</section >
 	)
 }
