@@ -18,7 +18,7 @@ function App() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFoundMonkeyIndex(null)
-    setGenerate(true)
+    setGenerate(!generate)
     setCharactersTyped(0)
     if (inputTextRef.current) {
       setInputText(inputTextRef.current.value)
@@ -52,9 +52,8 @@ function App() {
             <label className='formField'>Keys per second</label>
             <input type="number" ref={charactersPerSecondRef} />
           </div>
-          <button disabled={generate}>🐒⌨️</button>
+          <button>{generate ? '🐒🍌' : '🐒⌨️'}</button>
         </form>
-        <button onClick={() => setGenerate(false)}>🐒🍌</button>
       </section>
       <section>
         {foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
