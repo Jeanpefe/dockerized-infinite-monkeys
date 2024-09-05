@@ -19,7 +19,10 @@ function App() {
     e.preventDefault();
     setFoundMonkeyIndex(null)
     setGenerate(!generate)
-    setCharactersTyped(0)
+    if (charactersTyped !== 0 && generate === false) {
+      setCharactersTyped(0)
+    }
+
     if (inputTextRef.current) {
       setInputText(inputTextRef.current.value)
     }
@@ -42,15 +45,15 @@ function App() {
         <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'gap': '4rem' }}>
           <div className='formFieldContainer'>
             <label className='formField'>Text to type</label>
-            <input type="text" ref={inputTextRef} />
+            <input required type="text" ref={inputTextRef} />
           </div>
           <div className='formFieldContainer'>
             <label className='formField'>Number of Monkeys</label>
-            <input type="number" ref={inputNumberOfMonkeysRef} />
+            <input required type="number" ref={inputNumberOfMonkeysRef} />
           </div>
           <div className='formFieldContainer'>
             <label className='formField'>Keys per second</label>
-            <input type="number" ref={charactersPerSecondRef} />
+            <input required type="number" ref={charactersPerSecondRef} />
           </div>
           <button>{generate ? '🐒🍌' : '🐒⌨️'}</button>
         </form>
@@ -60,7 +63,7 @@ function App() {
       </section>
       {inputText &&
         <>
-          <p>Characters typed: {charactersTyped}</p>
+          <p>Keys pressed: <strong>{charactersTyped}</strong></p>
           <h2>Probabilities</h2>
           <section style={{ 'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #b49159', 'padding': '1rem' }}>
             <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000} displayTextNumberOfCharacters={'1000'} inputText={inputText} numberOfDecimals={15} />
