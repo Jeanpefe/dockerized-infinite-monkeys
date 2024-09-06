@@ -45,9 +45,9 @@ function App() {
       Number(inputNumberOfMonkeysRef.current?.value) > 0 &&
       Number(charactersPerSecondRef.current?.value) > 0
     ) {
-      setIsFormInvalid(false);
-    } else {
       setIsFormInvalid(true);
+    } else {
+      setIsFormInvalid(false);
     }
   }
 
