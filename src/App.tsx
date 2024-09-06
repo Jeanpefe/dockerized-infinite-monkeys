@@ -42,8 +42,8 @@ function App() {
     <>
       <main>
         <h1>Dockerized Infinite Monkeys</h1>
-        <section style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #b49159', 'padding': '1rem' }}>
-          <form onSubmit={handleSubmit} style={{ 'display': 'flex', 'flexDirection': 'row', 'alignItems': 'center', 'justifyContent': 'center', 'gap': '4rem' }}>
+        <section className='input_block'>
+          <form className='input_block__form' onSubmit={handleSubmit}>
             <div className='formFieldContainer'>
               <label className='formField'>Text to type</label>
               <input required type="text" ref={inputTextRef} />

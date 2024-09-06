@@ -31,3 +31,31 @@ input {
 	cursor: pointer;
 	transition: border-color 0.25s;
 }
+
+
+.input_block {
+	display: flex;
+	flex-direction: row; 
+	align-items: center; 
+	justify-content: center; 
+	background-color: #e5d9d0; 
+	border-radius: 1rem; 
+	border: 0.5rem solid #b49159; 
+	padding: 1rem
+
+}
+
+.input_block__form {
+	display: flex; 
+	flex-direction: row; 
+	align-items: center; 
+	justify-content: center; 
+	gap: 4rem
+}
+
+@media (max-width: 768px) {
+	.input_block__form {
+	  flex-direction: column;
+	  gap: 1rem;
+	}
+  }
