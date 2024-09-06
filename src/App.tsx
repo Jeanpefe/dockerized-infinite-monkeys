@@ -1,8 +1,8 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react'
 import './App.css'
-import MonkeyText from './components/MonkeyText';
-import { ProbabilityUnderConditions } from './components/Probability';
-import Footer from './components/Footer';
+import MonkeyText from './components/MonkeyText'
+import { ProbabilityUnderConditions } from './components/Probability'
+import Footer from './components/Footer'
 
 function App() {
   const [generate, setGenerate] = useState<boolean>(false)
@@ -11,12 +11,12 @@ function App() {
   const [charactersPerSecond, setCharactersPerSecond] = useState<number>(0)
   const [foundMonkeyIndex, setFoundMonkeyIndex] = useState<number | null>(null)
   const [charactersTyped, setCharactersTyped] = useState<number>(0)
-  const inputTextRef = useRef<HTMLInputElement>(null);
-  const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null);
-  const charactersPerSecondRef = useRef<HTMLInputElement>(null);
-
+  const [isFormInvalid, setIsFormInvalid] = useState<boolean>(false)
+  const inputTextRef = useRef<HTMLInputElement>(null)
+  const inputNumberOfMonkeysRef = useRef<HTMLInputElement>(null)
+  const charactersPerSecondRef = useRef<HTMLInputElement>(null)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     setFoundMonkeyIndex(null)
     setGenerate(!generate)
     if (charactersTyped !== 0 && generate === false) {
@@ -35,9 +35,22 @@ function App() {
   }
 
   const handleTextFound = useCallback((index: number) => {
-    setFoundMonkeyIndex(index);
-    setGenerate(false); // Detener la generación cuando se encuentra el texto
-  }, []);
+    setFoundMonkeyIndex(index)
+    setGenerate(false) // Detener la generación cuando se encuentra el texto
+  }, [])
+
+  const validateForm = () => {
+    if (
+      inputTextRef.current?.value &&
+      Number(inputNumberOfMonkeysRef.current?.value) > 0 &&
+      Number(charactersPerSecondRef.current?.value) > 0
+    ) {
+      setIsFormInvalid(false);
+    } else {
+      setIsFormInvalid(true);
+    }
+  }
+
   return (
     <>
       <main>
@@ -46,17 +59,17 @@ function App() {
           <form className='input_block__form' onSubmit={handleSubmit}>
             <div className='formFieldContainer'>
               <label className='formField'>Text to type</label>
-              <input required type="text" ref={inputTextRef} />
+              <input required type="text" ref={inputTextRef} onChange={validateForm} />
             </div>
             <div className='formFieldContainer'>
               <label className='formField'>Number of Monkeys</label>
-              <input required type="number" ref={inputNumberOfMonkeysRef} />
+              <input required type="number" ref={inputNumberOfMonkeysRef} onChange={validateForm} />
             </div>
             <div className='formFieldContainer'>
               <label className='formField'>Keys per second</label>
-              <input required type="number" ref={charactersPerSecondRef} />
+              <input required type="number" ref={charactersPerSecondRef} onChange={validateForm} />
             </div>
-            <button>{generate ? '🐒🍌' : '🐒⌨️'}</button>
+            <button disabled={!isFormInvalid}>{generate ? '🐒🍌' : '🐒⌨️'}</button>
           </form>
         </section>
         <section>
