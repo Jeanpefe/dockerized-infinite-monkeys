@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 import './App.css'
 import MonkeyText from './components/MonkeyText'
 import { ProbabilityUnderConditions } from './components/Probability'
@@ -51,20 +51,8 @@ function App() {
           </>
         }
         <section style={{ "display": "flex", "gap": "2rem", "flexDirection": "column", "marginTop": '2rem' }}>
-          {inputNumberOfMonkeys > 50 ? (
-            (
-              Array.from({ length: 50 }).map((_, index) => (
-                <MonkeyText
-                  inputText={inputText}
-                  generate={generate}
-                  charactersPerSecond={charactersPerSecond}
-                  setCharactersTyped={setCharactersTyped}
-                  onTextFound={() => handleTextFound(index)}
-                />
-              ))
-            )
-          ) : (
-            Array.from({ length: inputNumberOfMonkeys }).map((_, index) => (
+          {
+            Array.from({ length: Math.min(inputNumberOfMonkeys, 50) }).map((_, index) => (
               <MonkeyText
                 key={index}
                 inputText={inputText}
@@ -74,7 +62,7 @@ function App() {
                 setCharactersTyped={setCharactersTyped}
               />
             ))
-          )}
+          }
         </section>
       </main>
       <Footer />
