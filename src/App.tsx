@@ -54,12 +54,13 @@ function App() {
           {
             Array.from({ length: Math.min(inputNumberOfMonkeys, 50) }).map((_, index) => (
               <MonkeyText
-                key={index}
+                index={index}
                 inputText={inputText}
                 generate={generate}
                 charactersPerSecond={charactersPerSecond}
                 onTextFound={() => handleTextFound(index)}
                 setCharactersTyped={setCharactersTyped}
+                indexFound={foundMonkeyIndex}
               />
             ))
           }
