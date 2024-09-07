@@ -19,6 +19,12 @@
 	align-items: flex-start;
 }
 
+@media (max-width: 768px) {
+	.formFieldContainer {
+		align-items: center;
+	}
+  }
+
 input {
 	border-radius: 8px;
 	border: 1px solid transparent;
@@ -30,6 +36,7 @@ input {
 	background-color: #b49159;
 	cursor: pointer;
 	transition: border-color 0.25s;
+	width: 8rem;
 }
 
 
