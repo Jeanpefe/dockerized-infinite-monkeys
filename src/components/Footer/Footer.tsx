@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import './Footer.css'
 export default function Footer() {
     const [currentText, setCurrentText] = useState('Made by Jeanpefe');
 
