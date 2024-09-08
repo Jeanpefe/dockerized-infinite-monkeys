@@ -65,3 +65,22 @@ main {
   padding: 1.5rem;
 }
 
+/* width */
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track:horizontal {
+	background-color: #f6eee3; 
+}
+
+::-webkit-scrollbar-track:vertical {
+  background-color: #ccbcae;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
