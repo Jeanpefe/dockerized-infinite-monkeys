@@ -19,13 +19,10 @@ export const useGenerateText = ({ generate, charactersPerSecond, inputText, onTe
 			const interval = setInterval(() => {
 				setDisplayText(prev => {
 					const newText = prev + characters.charAt(Math.floor(Math.random() * charactersLength))
-					console.log(newText)
 					if (newText.includes(inputText)) {
-						console.log(newText)
 						onTextFound();
 						clearInterval(interval)
 					}
-					console.log(newText)
 					return newText
 				})
 				setCharactersTyped(prev => prev + 1)
