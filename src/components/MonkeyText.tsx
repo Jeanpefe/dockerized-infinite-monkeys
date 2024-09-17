@@ -12,12 +12,25 @@ interface MonkeyTextProps {
 
 export default function MonkeyText({ index, inputText, generate, charactersPerSecond, onTextFound, setCharactersTyped, indexFound }: MonkeyTextProps) {
 	const { displayText } = useGenerateText({ generate, charactersPerSecond, inputText, onTextFound, setCharactersTyped })
+
+	const getHighlightedText = (text: string, highlight: string) => {
+		const parts = text.split(new RegExp(`(${highlight})`, 'gi')); // Divide el texto donde está la coincidencia
+		return parts.map((part, index) =>
+			part.toLowerCase() === highlight.toLowerCase() ? (
+				<span key={index} style={{ color: 'red' }}>{part}</span>
+			) : (
+				<span key={index}>{part}</span>
+			)
+		);
+	};
+
 	return (
 		<section style={{
-			"background": "#f6eee3", "maxWidth": "90rem", "borderRadius": "0.5rem", "overflowX": "auto", "padding": "0.5rem 1rem", "opacity": indexFound !== null && index !== indexFound ? "0.5" : "1"
+			background: "#f6eee3", maxWidth: "90rem", borderRadius: "0.5rem", overflowX: "auto", padding: "0.5rem 1rem", opacity: indexFound !== null && index !== indexFound ? "0.5" : "1"
 		}} >
-			<p style={{ 'fontFamily': 'Special Elite', 'color': 'black' }
-			} > {displayText}</ p>
-		</section >
-	)
+			<p style={{ fontFamily: 'Special Elite', color: 'black' }}>
+				{getHighlightedText(displayText, inputText)}
+			</p>
+		</section>
+	);
 }
