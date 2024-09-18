@@ -57,7 +57,12 @@ input {
 	flex-direction: row; 
 	align-items: center; 
 	justify-content: center; 
-	gap: 4rem
+	gap: 4rem;
+
+	button {
+		align-self: flex-end;
+
+	}
 }
 
 @media (max-width: 768px) {
