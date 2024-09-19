@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import './Footer.css'
+
 export default function Footer() {
-    const [currentText, setCurrentText] = useState('Made by Jeanpefe');
+    const [currentText, setCurrentText] = useState('Made by Jeanpefe')
 
     useEffect(() => {
-
         const texts = [
             'Mdae by Ajenpfe',
             'Made by Jeanpefe',
@@ -25,9 +25,19 @@ export default function Footer() {
         return () => clearInterval(intervalId);
     }, []);
 
+    // Separar la última palabra del texto
+    const splitText = currentText.split(' ')
+    const lastWord = splitText.pop()
+    const textWithoutLastWord = splitText.join(' ')
+
     return (
         <footer>
-            <p>{currentText}</p>
+            <p>
+                {textWithoutLastWord}{' '}
+                <a style={{ "color": "#392c1c" }} href="https://github.com/Jeanpefe" target="_blank">
+                    {lastWord}
+                </a>
+            </p>
         </footer>
     );
 }
