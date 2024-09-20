@@ -4,6 +4,7 @@ import MonkeyText from './components/MonkeyText'
 import { ProbabilityUnderConditions } from './components/Probability'
 import Footer from './components/Footer/Footer'
 import FormSection from './components/FormSection/FormSection'
+import MathExplanation from './components/MathExplanation'
 
 function App() {
   const [generate, setGenerate] = useState<boolean>(false)
@@ -34,6 +35,9 @@ function App() {
     <>
       <main>
         <h1>Dockerized Infinite Monkeys</h1>
+		<h2>Infinite Monkey Theorem</h2>
+		<p>If we let a monkey type randomly on a keyboard for an infinite period of time, it will eventually type every possible finite text with probability of 1</p>
+		<MathExplanation />
         <FormSection onFormSubmit={handleFormSubmit} generate={generate} />
         <section>
           {foundMonkeyIndex !== null && <p>Monkey {foundMonkeyIndex + 1} typed the text!</p>}
