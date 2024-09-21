@@ -44,7 +44,7 @@ function App() {
           <>
             <p>Keys pressed: <strong>{charactersTyped}</strong></p>
             <h2>Probabilities</h2>
-            <section style={{ 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #b49159', 'padding': '1rem' }}>
+            <section style={{ 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#e5d9d0', 'borderRadius': '1rem', 'border': '0.5rem solid #b49159', 'padding': '1rem', 'gap': '2rem' }}>
               <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000} displayTextNumberOfCharacters={'1000'} inputText={inputText} numberOfDecimals={15} />
               <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={10000} displayTextNumberOfCharacters={'10000'} inputText={inputText} numberOfDecimals={15} />
               <ProbabilityUnderConditions inputNumberOfMonkeys={inputNumberOfMonkeys} numberOfCharacters={1000000} displayTextNumberOfCharacters={'1 million'} inputText={inputText} numberOfDecimals={15} />
