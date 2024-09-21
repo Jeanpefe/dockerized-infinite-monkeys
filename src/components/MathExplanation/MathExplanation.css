@@ -1,0 +1,28 @@
+/* Añade un archivo MathExplanation.css o coloca estos estilos en línea */
+.math_explanation__container {
+	background-color: #f4e6d7; /* Un color crema suave que hace que el texto sea más cómodo de leer */
+	padding: 20px;
+	border-radius: 8px; /* Esquinas redondeadas */
+	margin: 0 auto; /* Centrar en la página */
+  }
+  
+
+  .katex {
+	font-size: 1.2em; /* Ajusta el tamaño de las fórmulas para que se integren con el texto */
+  }
+  
+  @media screen and (max-width: 600px) {
+	section {
+	  padding: 15px;
+	}
+	h2 {
+	  font-size: 1.5em;
+	}
+	p {
+	  font-size: 1em;
+	}
+	.katex {
+	  font-size: 1em;
+	}
+  }
+  

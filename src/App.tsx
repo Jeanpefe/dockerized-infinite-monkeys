@@ -4,7 +4,7 @@ import MonkeyText from './components/MonkeyText'
 import { ProbabilityUnderConditions } from './components/Probability'
 import Footer from './components/Footer/Footer'
 import FormSection from './components/FormSection/FormSection'
-import MathExplanation from './components/MathExplanation'
+import MathExplanation from './components/MathExplanation/MathExplanation'
 
 function App() {
   const [generate, setGenerate] = useState<boolean>(false)
