@@ -35,8 +35,6 @@ function App() {
     <>
       <main>
         <h1>Dockerized Infinite Monkeys</h1>
-		<h2>Infinite Monkey Theorem</h2>
-		<p>If we let a monkey type randomly on a keyboard for an infinite period of time, it will eventually type every possible finite text with probability of 1</p>
 		<MathExplanation />
         <FormSection onFormSubmit={handleFormSubmit} generate={generate} />
         <section>

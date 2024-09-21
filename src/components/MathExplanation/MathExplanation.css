@@ -1,14 +1,14 @@
 /* Añade un archivo MathExplanation.css o coloca estos estilos en línea */
 .math_explanation__container {
-	background-color: #f4e6d7; /* Un color crema suave que hace que el texto sea más cómodo de leer */
+	background-color: #f4e6d7;
 	padding: 20px;
-	border-radius: 8px; /* Esquinas redondeadas */
-	margin: 0 auto; /* Centrar en la página */
+	border-radius: 8px;
+	margin-bottom: 1rem;
   }
   
 
   .katex {
-	font-size: 1.2em; /* Ajusta el tamaño de las fórmulas para que se integren con el texto */
+	font-size: 1.2em;
   }
   
   @media screen and (max-width: 600px) {

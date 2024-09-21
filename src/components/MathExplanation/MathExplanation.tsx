@@ -5,6 +5,8 @@ import './MathExplanation.css';
 export default function MathExplanation() {
 	return (
 	  <section className='math_explanation__container'>
+		<h2>Infinite Monkey Theorem</h2>
+		<p>If we let a monkey type randomly on a keyboard for an infinite period of time, it will eventually type every possible finite text with probability of 1</p>
 		<h2>Mathematical Explanation</h2>
 		<p>
       Let's say that our keyboard has 26 different keys. The probability of a monkey typing a word of length <em>L</em> is <InlineMath math="(1/26)^L"/> in any block of <em>L</em> characters.<br />
