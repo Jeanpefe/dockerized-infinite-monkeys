@@ -84,3 +84,7 @@ main {
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
+
+p {
+	font-size: 1.2rem;
+}
