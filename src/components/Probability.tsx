@@ -11,7 +11,7 @@ export function ProbabilityUnderConditions({ inputNumberOfMonkeys, numberOfChara
 	const probability = getProbabilityOfTypingAWordWithMultipleMonkeys({ inputNumberOfMonkeys, numberOfCharacters, inputText, numberOfDecimals});
 	
 	  return (
-		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f4e6d7', padding: '1rem', borderRadius: '12px', textAlign: 'center', width: '25rem', height: '12rem'}}>
+		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f4e6d7', padding: '1rem', borderRadius: '12px', textAlign: 'center', width: '17rem', height: '12rem'}}>
 		  <h3 style={{ fontSize: '1.25rem', color: '#5d4037'}}>
 			{probability}
 		  </h3>
