@@ -20,7 +20,12 @@ Consider we have $k$ monkeys, the probabillity that at least one monkey types th
 
 $P_{nk} = 1 - \left(\left(1-\left(\frac{1}{26}\right)^L\right)^n\right)^k$
 
- # TODO List
+# Deploy instructions
+1. `docker build -t [image-name]`: Creates an image with a custom name (required param `-t` to do so).
+2. `docker run -p [local-port]:80 [image-name]`: Takes the Dockerfile and every required file and builds the image with the specified image on the desired port.
+3. Access to `http://localhost:[local-port]/` to verify that the app is deployed.
+
+ # To do list
  - [x] Change keys pressed per second
  - [x] Basic Search algorithm
  - [x] Multiple monkeys
