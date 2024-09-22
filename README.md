@@ -12,9 +12,12 @@ Assume that our keyboard has 26 different keys. The probability of the monkey ty
 Hence, the probability of *not* typing the word of length $L$ in a 26 character attempt is $1-(\frac{1}{26})^L$. Since each block of length $L$ is independently typed, we can conclude that the probability of not typing a word of length $L$ after the $n$-th block of length $L$ pressed is
  
 $P_n = \left(1-\left(\frac{1}{26}\right)^L\right)^n$   which tends to 0 as $n$ goes to infinity.
+
 The above expression is equivalent to the probability of $n$ monkeys *not* typing the word of length $L$ on the first try.
+
 With all of these ingredients, we get the following result:
 Consider we have $k$ monkeys, the probabillity that at least one monkey types the word of length $L$ in less than $n$ blocks is:
+
 $P_{nk} = 1 - \left(\left(1-\left(\frac{1}{26}\right)^L\right)^n\right)^k$
 
  # TODO List
