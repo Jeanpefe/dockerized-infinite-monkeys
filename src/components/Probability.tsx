@@ -16,7 +16,7 @@ export function ProbabilityUnderConditions({ inputNumberOfMonkeys, numberOfChara
 			{probability}
 		  </h3>
 		  <p style={{ fontSize: '1.2rem', color: '#6d4c41'}}>
-			Probability in {displayTextNumberOfCharacters} characters
+			Probability in <strong>{displayTextNumberOfCharacters}</strong> characters
 		  </p>
 		</div>
 	  )
