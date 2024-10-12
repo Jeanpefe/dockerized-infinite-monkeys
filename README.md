@@ -3,6 +3,8 @@
 
 <img src="/img/second_attempt.jpeg" alt="drawing" width="500"/>
 
+Deployed on Vercel: https://dockerized-infinite-monkeys.vercel.app/
+
 Project based on the [infinite monkey theorem](https://en.wikipedia.org/wiki/Infinite_monkey_theorem#:~:text=The%20infinite%20monkey%20theorem%20states,complete%20works%20of%20William%20Shakespeare.). The theorem goes as follows:
 
 _If we let a monkey type randomly on a keyboard for an infinite period of time, it will eventually type every possible finite text with probability of 1_
